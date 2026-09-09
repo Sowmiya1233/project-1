@@ -1,0 +1,8 @@
+sentence-transformers
+chromadb
+groq
+streamlit
+python-dotenv
+numpy
+pandas
+rank-bm25
