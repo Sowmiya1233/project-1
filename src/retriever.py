@@ -20,7 +20,10 @@ from sentence_transformers import SentenceTransformer
 import chromadb
 
 # ---- Config (keep in sync with indexing.py) ----
-INDEX_DIR = Path("chroma_index")
+# Anchored to this file's location (not the current working directory), so
+# it resolves correctly regardless of where the process is launched from
+# (local `streamlit run src/app.py` vs. a container's working directory).
+INDEX_DIR = Path(__file__).resolve().parent.parent / "chroma_index"
 COLLECTION_NAME = "corpus_chunks"
 EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
 DEFAULT_TOP_K = 5

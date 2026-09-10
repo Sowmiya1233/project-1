@@ -22,8 +22,11 @@ import chromadb
 from chromadb.config import Settings
 
 # ---- Config ----
-DATA_DIR = Path("data")
-INDEX_DIR = Path("chroma_index")
+# Anchored to this file's location (not the current working directory), so
+# these resolve correctly regardless of where the process is launched from
+# (local `python src/indexing.py` vs. a container's working directory).
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+INDEX_DIR = Path(__file__).resolve().parent.parent / "chroma_index"
 COLLECTION_NAME = "corpus_chunks"
 EMBED_MODEL_NAME = "all-MiniLM-L6-v2"   # fast, solid baseline; swap for a stronger model later
 CHUNK_SIZE = 500          # characters per chunk
