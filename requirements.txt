@@ -6,3 +6,4 @@ python-dotenv
 numpy
 pandas
 rank-bm25
+torchvision
